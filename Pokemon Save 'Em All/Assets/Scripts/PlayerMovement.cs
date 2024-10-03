@@ -15,12 +15,12 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     private Vector3 velocity = Vector3.zero;
-    
+
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        if(Input.GetButton("Jump")&& isGrounded == true)
+        if(Input.GetButton("Jump") && isGrounded == true)
         {
             isJumping = true;
         }
@@ -53,4 +53,25 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true;
         }
     }
+
+    // This will attach the player to the moving platform
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("MovingPlatform"))  // Use tag comparison
+        {
+            this.transform.parent = col.transform;  // Parent player to platform
+            rb.velocity = Vector2.zero; // Optional: Prevent unwanted movement upon landing
+        }
+    }
+
+    // This will detach the player from the platform when they jump or leave
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("MovingPlatform"))  // Use tag comparison
+        {
+            this.transform.parent = null;  // Unparent player from platform
+        }
+    }
+
+
 }
