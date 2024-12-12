@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro; // Import TextMeshPro namespace
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour
@@ -13,7 +13,7 @@ public class BattleSystem : MonoBehaviour
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
-    public Text dialogueText;
+    public TMP_Text dialogueText; // Use TMP_Text instead of Text
     Unit playerUnit;
     Unit enemyUnit;
 
@@ -33,8 +33,7 @@ public class BattleSystem : MonoBehaviour
         enemyUnit = enemyGO.GetComponent<Unit>();
 
 
-        dialogueText.text= enemyUnit.unitName + " has appeared!";
+        dialogueText.text = enemyUnit.unitName + " has appeared!";
         //state = BattleState.PLAYERTURN;
     }
-
 }
