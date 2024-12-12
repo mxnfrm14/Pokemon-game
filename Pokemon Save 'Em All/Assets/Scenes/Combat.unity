@@ -1071,6 +1071,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1045684046}
   - component: {fileID: 1045684045}
+  - component: {fileID: 1045684047}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -1111,6 +1112,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045684047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045684044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca54158738da4f418cbf3970ef6c37a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  playerPrefab: {fileID: 8320116842831820720, guid: 6084caa287c620f48ba23642b73046b8, type: 3}
+  enemyPrefab: {fileID: 8471039529679775119, guid: 55473ae518b80004f99e99cee398a886, type: 3}
+  playerBattleStation: {fileID: 1267256103}
+  enemyBattleStation: {fileID: 1229858584}
+  dialogueText: {fileID: 2053330309}
+  playerHUD: {fileID: 1524395121}
+  enemyHUD: {fileID: 1830783814}
 --- !u!1 &1122775691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1526,7 @@ GameObject:
   - component: {fileID: 1524395118}
   - component: {fileID: 1524395120}
   - component: {fileID: 1524395119}
+  - component: {fileID: 1524395121}
   m_Layer: 5
   m_Name: PlayerBattleHUD
   m_TagString: Untagged
@@ -1571,6 +1593,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524395117}
   m_CullTransparentMesh: 1
+--- !u!114 &1524395121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524395117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872abb88ce212649a954b815d8d6673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1699681040}
+  hpSlider: {fileID: 1843704156}
 --- !u!1 &1579372674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1795,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -130.38013, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1820,6 +1856,7 @@ GameObject:
   - component: {fileID: 1830783811}
   - component: {fileID: 1830783813}
   - component: {fileID: 1830783812}
+  - component: {fileID: 1830783814}
   m_Layer: 5
   m_Name: EnemyBattleHUD
   m_TagString: Untagged
@@ -1886,6 +1923,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830783810}
   m_CullTransparentMesh: 1
+--- !u!114 &1830783814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830783810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2872abb88ce212649a954b815d8d6673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1877019886}
+  hpSlider: {fileID: 33022112}
 --- !u!1 &1832819208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2222,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -145.93008, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2472,7 +2523,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -148.32236, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
