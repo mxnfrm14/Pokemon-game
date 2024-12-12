@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Numero1.unity
     guid: 390ee7b3556a08f418a70e4eb1b79e04
+  - enabled: 1
+    path: Assets/Scenes/Numero2.unity
+    guid: c0692fae89af3da448bcd72f2595c096
   m_configObjects: {}
