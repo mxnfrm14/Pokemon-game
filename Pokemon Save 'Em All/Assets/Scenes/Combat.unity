@@ -1095,7 +1095,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8471039529679775119, guid: 55473ae518b80004f99e99cee398a886, type: 3}
   playerBattleStation: {fileID: 1267256103}
   enemyBattleStation: {fileID: 1229858584}
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 2053330309}
 --- !u!4 &1045684046
 Transform:
   m_ObjectHideFlags: 0
