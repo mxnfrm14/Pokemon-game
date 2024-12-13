@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MovingPlatform
   - MovingPlatform2
+  - Dialogue
   layers:
   - Default
   - TransparentFX
