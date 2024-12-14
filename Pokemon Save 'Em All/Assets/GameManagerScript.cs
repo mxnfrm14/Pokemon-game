@@ -20,7 +20,12 @@ public class GameManagerScript : MonoBehaviour
         gameOverUI.SetActive(true);
     }
     public void restart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (SceneManager.GetActiveScene().name == "Numero1bis")
+        {
+            SceneManager.LoadScene("Numero1");
+        }else{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
     public void quit(){
         Application.Quit();
