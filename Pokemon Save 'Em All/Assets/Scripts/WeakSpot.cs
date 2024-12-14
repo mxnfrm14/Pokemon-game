@@ -4,6 +4,7 @@ public class WeakSpot : MonoBehaviour
 {
     public GameObject objectToDestroy; // Reference to the enemy GameObject
     public playerHealth pHealth;
+    public AudioManager audiomanager;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,12 +17,14 @@ public class WeakSpot : MonoBehaviour
             // Check if the player is jumping on top of the enemy
             if (playerY > weakSpotY + 0.1f) // Add a small offset
             {
+                audiomanager.PlaySfxDegats(audiomanager.monstre);
                 // Destroy the enemy if the player is above
                 Destroy(objectToDestroy);
 
             }
             else
             {
+                audiomanager.PlaySfxDegats(audiomanager.degats);
                 // Deal damage to the player if colliding from the side
                 pHealth.health -= 10;
             }
