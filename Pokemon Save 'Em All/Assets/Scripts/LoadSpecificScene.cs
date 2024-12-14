@@ -13,8 +13,10 @@ public class LoadSpecificScene : MonoBehaviour
             if (currentScene == "Numero1")
             {
                 SceneManager.LoadScene("Numero2");
-            }
-            else if (currentScene == "Numero2")
+            }else if (currentScene == "Numero1bis")
+            {
+                SceneManager.LoadScene("Numero2");
+            }else if (currentScene == "Numero2")
             {
                 SceneManager.LoadScene("Numero3");
             }

@@ -130,8 +130,7 @@ namespace YourNamespace
         IEnumerator ReturnToPreviousScene()
         {
             yield return new WaitForSeconds(2f); // Wait for 2 seconds before returning to the previous scene
-            SceneManager.LoadScene("Numero1");
-            gameManager.TpCheckPoint();
+            SceneManager.LoadScene("Numero1bis");
 
         }
 
