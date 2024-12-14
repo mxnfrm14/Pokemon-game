@@ -33,10 +33,6 @@ namespace YourNamespace
         public BattleHUD playerHUD;
         public BattleHUD enemyHUD;
 
-        public GameObject checkpoint;
-
-        public GameManagerScript gameManager;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -130,7 +126,12 @@ namespace YourNamespace
         IEnumerator ReturnToPreviousScene()
         {
             yield return new WaitForSeconds(2f); // Wait for 2 seconds before returning to the previous scene
-            SceneManager.LoadScene("Numero1bis");
+            if (state == BattleState.WON)
+            {
+                SceneManager.LoadScene("Numero1bis");
+            }
+            else
+                SceneManager.LoadScene("Numero1");
 
         }
 
@@ -140,6 +141,11 @@ namespace YourNamespace
                 return;
 
             StartCoroutine(PlayerAttack());
+        }
+        public void OnFleeButtonClick()
+        {
+            // Charger le niveau 1
+            SceneManager.LoadScene("Numero1");
         }
     }
 }
