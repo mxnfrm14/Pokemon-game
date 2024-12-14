@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Import TextMeshPro namespace
+using UnityEngine.SceneManagement; // Import SceneManagement namespace
 
 namespace YourNamespace
 {
-
     public class BattleDialogue : MonoBehaviour
     {
         public TMP_Text dialogueText;
@@ -15,6 +15,7 @@ namespace YourNamespace
             dialogueText.text = text;
         }
     }
+
     public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
     public class BattleSystemeVF : MonoBehaviour
@@ -32,6 +33,9 @@ namespace YourNamespace
         public BattleHUD playerHUD;
         public BattleHUD enemyHUD;
 
+        public GameObject checkpoint;
+
+        public GameManagerScript gameManager;
 
         // Start is called before the first frame update
         void Start()
@@ -42,6 +46,7 @@ namespace YourNamespace
 
         void SetupBattle()
         {
+            Debug.Log("SetupBattle");
             GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
             playerUnit = playerGO.GetComponent<Unit>();
             GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
@@ -66,6 +71,7 @@ namespace YourNamespace
             bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
             dialogueText.text = "The attack is successful!";
+            enemyHUD.SetHP(enemyUnit.currentHP);
 
             yield return new WaitForSeconds(2f);
 
@@ -88,6 +94,7 @@ namespace YourNamespace
             yield return new WaitForSeconds(1f);
 
             bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+            playerHUD.SetHP(playerUnit.currentHP);
 
             yield return new WaitForSeconds(1f);
 
@@ -108,11 +115,24 @@ namespace YourNamespace
             if (state == BattleState.WON)
             {
                 dialogueText.text = "You won the battle!";
+                // Optionally, destroy the enemy game object
+                Destroy(enemyUnit.gameObject);
             }
             else if (state == BattleState.LOST)
             {
                 dialogueText.text = "You were defeated.";
             }
+
+            // Load the previous scene after a short delay
+            StartCoroutine(ReturnToPreviousScene());
+        }
+
+        IEnumerator ReturnToPreviousScene()
+        {
+            yield return new WaitForSeconds(2f); // Wait for 2 seconds before returning to the previous scene
+            SceneManager.LoadScene("Numero1");
+            gameManager.TpCheckPoint();
+
         }
 
         public void OnAttackButton()

@@ -1,33 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
-    // Start is called before the first frame update
+    public GameObject player;
+    private Vector3 lastCheckpointPosition = Vector3.zero; // Position par défaut du dernier checkpoint
+
+    public Transform Checkpoint;
+
     void Start()
     {
-        gameOverUI.SetActive(false);
-        
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(false); // Désactive l'écran Game Over au début
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCheckpoint(Vector3 checkpointPosition)
     {
-        
+        lastCheckpointPosition = checkpointPosition; // Sauvegarde la position du checkpoint
+        Debug.Log("Checkpoint sauvegardé à : " + checkpointPosition);
     }
 
-    public void gameOver(){
-        gameOverUI.SetActive(true);
+    public Vector3 GetCheckpoint()
+    {
+        return lastCheckpointPosition; // Retourne la position du dernier checkpoint
     }
 
-    public void restart(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void TpCheckPoint()
+    {
+        player.transform.position = Checkpoint.position; // Téléporte le joueur au dernier checkpoint
     }
-
-    public void quit(){
-        Application.Quit();
+    
+    public void gameOver()
+    {
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(true); // Affiche l'écran Game Over
+        }
     }
 }
