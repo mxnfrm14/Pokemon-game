@@ -30,6 +30,11 @@ public class AudioManager : MonoBehaviour
             {
                 musicSource.clip = backgroundLVL2;
                 musicSource.Play();
+            }
+            else if (currentScene == "Numero2bis")
+            {
+                musicSource.clip = backgroundLVL2;
+                musicSource.Play();
             }else if (currentScene == "Combat")
             {
                 musicSource.clip = combat;
