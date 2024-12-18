@@ -1,34 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FellOffMap : MonoBehaviour
 {
+    public Transform respawnPoint;
+    public AudioManager audioManager;
 
-    public GameObject player;
-    public Transform RespawnPoint;
-    public playerHealth pHealth;
-    public AudioManager audiomanager;
-
+    private playerHealth pHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Find the playerHealth instance
+        pHealth = playerHealth.Instance;
+
+        // Optionally, find the respawn point if not assigned
+        if (respawnPoint == null)
+        {
+            respawnPoint = GameObject.Find("RespawnPoint").transform;
+        }
+
+        if (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
-    }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (audioManager != null)
+            {
+                audioManager.PlaySfxDegats(audioManager.degats);
+            }
 
-    private void OnCollisionEnter2D(Collision2D other){
-        
-        if(other.gameObject.CompareTag("Player")){
-            audiomanager.PlaySfxDegats(audiomanager.degats);
-            pHealth.health -= 10;
-            player.transform.position = RespawnPoint.position;
+            if (pHealth != null)
+            {
+                pHealth.UpdateHealth(pHealth.health - 10);
+            }
+
+            if (other.gameObject != null && respawnPoint != null)
+            {
+                other.gameObject.transform.position = respawnPoint.position;
+            }
         }
     }
 }

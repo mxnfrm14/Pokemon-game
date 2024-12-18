@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // Import TextMeshPro namespace
 using UnityEngine.SceneManagement; // Import SceneManagement namespace
@@ -32,6 +31,8 @@ namespace YourNamespace
 
         public BattleHUD playerHUD;
         public BattleHUD enemyHUD;
+        public TMP_Text HPText_Player;
+        public TMP_Text HPText_Enemy;
 
         // Start is called before the first frame update
         void Start()
@@ -45,13 +46,23 @@ namespace YourNamespace
             Debug.Log("SetupBattle");
             GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
             playerUnit = playerGO.GetComponent<Unit>();
+
+            // Initialize playerUnit's HP with playerHealth's HP
+            if (playerHealth.Instance != null)
+            {
+                playerUnit.currentHP = (int)playerHealth.Instance.health;
+                playerUnit.maxHP = (int)playerHealth.Instance.maxHealth;
+            }
+
             GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
             enemyUnit = enemyGO.GetComponent<Unit>();
 
-            dialogueText.text = "A wild " + enemyUnit.unitName + " approaches...";
+            dialogueText.text = "Un " + enemyUnit.unitName + " sauvage approche...";
 
             playerHUD.SetHUD(playerUnit);
             enemyHUD.SetHUD(enemyUnit);
+            HPText_Enemy.text = "HP " + enemyUnit.currentHP + "/" + enemyUnit.maxHP;
+            HPText_Player.text = "HP " + playerUnit.currentHP + "/" + playerUnit.maxHP;
 
             state = BattleState.PLAYERTURN;
             PlayerTurn();
@@ -59,15 +70,16 @@ namespace YourNamespace
 
         void PlayerTurn()
         {
-            dialogueText.text = "Choose an action:";
+            dialogueText.text = "Que faire ?...";
         }
 
         IEnumerator PlayerAttack()
         {
             bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
-            dialogueText.text = "The attack is successful!";
+            dialogueText.text = "L'attaque de " + playerUnit.unitName + " a touché " + enemyUnit.unitName + " !";
             enemyHUD.SetHP(enemyUnit.currentHP);
+            HPText_Enemy.text = "HP " + enemyUnit.currentHP + "/" + enemyUnit.maxHP;
 
             yield return new WaitForSeconds(2f);
 
@@ -85,12 +97,13 @@ namespace YourNamespace
 
         IEnumerator EnemyTurn()
         {
-            dialogueText.text = enemyUnit.unitName + " attacks!";
+            dialogueText.text = enemyUnit.unitName + " attaque!";
 
             yield return new WaitForSeconds(1f);
 
             bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
             playerHUD.SetHP(playerUnit.currentHP);
+            HPText_Player.text = "HP " + playerUnit.currentHP + "/" + playerUnit.maxHP;
 
             yield return new WaitForSeconds(1f);
 
@@ -110,13 +123,22 @@ namespace YourNamespace
         {
             if (state == BattleState.WON)
             {
-                dialogueText.text = "You won the battle!";
+                dialogueText.text = "Vous avez gagné!";
                 // Optionally, destroy the enemy game object
-                Destroy(enemyUnit.gameObject);
+                if (enemyUnit != null)
+                {
+                    Destroy(enemyUnit.gameObject);
+                }
             }
             else if (state == BattleState.LOST)
             {
-                dialogueText.text = "You were defeated.";
+                dialogueText.text = "Vous avez perdu...";
+            }
+
+            // Update playerHealth's HP with playerUnit's HP
+            if (playerHealth.Instance != null && playerUnit != null)
+            {
+                playerHealth.Instance.UpdateHealth(playerUnit.GetCurrentHP());
             }
 
             // Load the previous scene after a short delay
@@ -131,8 +153,9 @@ namespace YourNamespace
                 SceneManager.LoadScene("Numero1bis");
             }
             else
+            {
                 SceneManager.LoadScene("Numero1");
-
+            }
         }
 
         public void OnAttackButton()
@@ -142,8 +165,15 @@ namespace YourNamespace
 
             StartCoroutine(PlayerAttack());
         }
+
         public void OnFleeButtonClick()
         {
+            // Update playerHealth's HP with playerUnit's HP before fleeing
+            if (playerHealth.Instance != null && playerUnit != null)
+            {
+                playerHealth.Instance.UpdateHealth(playerUnit.GetCurrentHP());
+            }
+
             // Charger le niveau 1
             SceneManager.LoadScene("Numero1");
         }

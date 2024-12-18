@@ -2,16 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Add this for TextMeshPro
+using TMPro;
 
 public class playerHealth : MonoBehaviour
 {
+    public static playerHealth Instance { get; private set; } // Singleton instance
+
     public float health;
     public float maxHealth;
     public Image healthBar;
-    public TextMeshProUGUI healthText; // Reference to the TextMeshPro component
+    public TextMeshProUGUI healthText;
     public GameManagerScript gameManager;
     private bool isDead;
+
+    void Awake()
+    {
+        // Ensure that there's only one instance of playerHealth
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Make this object persistent between scenes
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +39,19 @@ public class playerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        }
         UpdateHealthUI();
 
         if (health <= 0 && !isDead)
         {
             isDead = true;
-            gameManager.gameOver();
+            if (gameManager != null)
+            {
+                gameManager.gameOver();
+            }
         }
     }
 
@@ -40,5 +62,16 @@ public class playerHealth : MonoBehaviour
         {
             healthText.text = Mathf.Clamp(health, 0, maxHealth).ToString();
         }
+    }
+
+    // Method to update health from Unit script
+    public void UpdateHealth(float newHealth)
+    {
+        health = newHealth;
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        }
+        UpdateHealthUI();
     }
 }
