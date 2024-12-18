@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2889895145967601073}
   - component: {fileID: 5452160893272085991}
+  - component: {fileID: 5554569958720869359}
   m_Layer: 0
   m_Name: camelon
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5554569958720869359
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809177473041989358}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c356fb11d709be541bbb20f4c57bdf45, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8471039529679775119
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,5 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: "Cam\xE9l\xE9on"
   damage: 5
+  currentHP: 50
   maxHP: 50
-  currentHP: 30

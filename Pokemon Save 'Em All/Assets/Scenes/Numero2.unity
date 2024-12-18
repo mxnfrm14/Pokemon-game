@@ -979,7 +979,8 @@ GameObject:
   - component: {fileID: 383109441}
   - component: {fileID: 383109444}
   - component: {fileID: 383109443}
-  - component: {fileID: 383109442}
+  - component: {fileID: 383109445}
+  - component: {fileID: 383109446}
   m_Layer: 0
   m_Name: Graphicss
   m_TagString: Untagged
@@ -1002,20 +1003,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2026189655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &383109442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383109440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ff40078c331b543871fa75cfaa087b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1595423058}
-  gameManager: {fileID: 1196826811}
 --- !u!70 &383109443
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1048,8 +1035,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017238604, y: 1.2096778}
-  m_Size: {x: 0.86395264, y: 3.5246177}
+  m_Offset: {x: -0.017240172, y: 1.2096778}
+  m_Size: {x: 1.5515453, y: 3.5246177}
   m_Direction: 0
 --- !u!212 &383109444
 SpriteRenderer:
@@ -1092,7 +1079,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 698825455, guid: aa37efc7df6fc7344b5507b9e05a700f, type: 3}
+  m_Sprite: {fileID: 609405867, guid: e016c56f15ea414478e700fa7db7377c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1103,6 +1090,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &383109445
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383109440}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76dd146e096030442a8b5cc6eb3b2c57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &383109446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383109440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605ffa98f81e0974c8c899fb7327f086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1595423058}
+  gameManager: {fileID: 1196826811}
 --- !u!1 &531424354
 GameObject:
   m_ObjectHideFlags: 0
@@ -58717,7 +58739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026189655}
   m_Layer: 0
-  m_Name: Cameleon
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
