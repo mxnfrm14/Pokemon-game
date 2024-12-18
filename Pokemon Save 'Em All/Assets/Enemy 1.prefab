@@ -27,9 +27,9 @@ Transform:
   m_GameObject: {fileID: 5156274429265560281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.07, z: 0}
+  m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4954884080369582796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954884080369582796}
-  - component: {fileID: 6241005517122409085}
+  - component: {fileID: 1344396028160598685}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -132,14 +132,14 @@ Transform:
   m_GameObject: {fileID: 8534663332437168066}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 708, y: 378, z: -2.8394048}
-  m_LocalScale: {x: 99.99999, y: 99.99999, z: 99.99999}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 785961331698951920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6241005517122409085
+--- !u!114 &1344396028160598685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,10 +148,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8534663332437168066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca50474f8737dc8428991e0338f80f59, type: 3}
+  m_Script: {fileID: 11500000, guid: 58e450285407d164e9a7228fffd259c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Slime
-  damage: 10
-  currentHP: 100
-  maxHP: 100
+  unitNameE: Slime
+  damageE: 10
+  currentHPE: 10
+  maxHPE: 100

@@ -168,11 +168,13 @@ namespace YourNamespace
             yield return new WaitForSeconds(2f); // Wait for 2 seconds before returning to the previous scene
             if (state == BattleState.WON)
             {
-                SceneManager.LoadScene("Numero1bis");
+                int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(currentSceneIndex + 1);
             }
             else
             {
-                SceneManager.LoadScene("Numero1");
+                int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(currentSceneIndex - 1);
             }
         }
 

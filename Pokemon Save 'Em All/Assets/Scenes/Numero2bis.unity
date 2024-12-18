@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 312681608}
-  pHealth: {fileID: 1595423059}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &64268785
 BoxCollider2D:
@@ -1180,7 +1179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1894523211}
-  pHealth: {fileID: 1595423059}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &680733918
 BoxCollider2D:
@@ -1662,10 +1660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab004f7445327a4c86af29307aeee12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1595423058}
-  RespawnPoint: {fileID: 1893234820}
-  pHealth: {fileID: 1595423059}
-  audiomanager: {fileID: 0}
+  respawnPoint: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!61 &904193887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45986,7 +45982,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 279492899}
-  pHealth: {fileID: 1595423059}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &1529117482
 BoxCollider2D:
@@ -46073,7 +46068,6 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 1772625401}
   healthText: {fileID: 962252039}
-  gameManager: {fileID: 1196826811}
 --- !u!95 &1595423060
 Animator:
   serializedVersion: 5
@@ -46247,7 +46241,7 @@ Transform:
   m_GameObject: {fileID: 1595423058}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.63, y: 27.75, z: 0}
+  m_LocalPosition: {x: 49.59, y: 30.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47021,7 +47015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1165581234}
-  pHealth: {fileID: 1595423059}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &1815378802
 BoxCollider2D:
@@ -47355,6 +47348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893234820}
   - component: {fileID: 1893234821}
+  - component: {fileID: 1893234822}
   m_Layer: 0
   m_Name: RespawnPoint
   m_TagString: Untagged
@@ -47371,7 +47365,7 @@ Transform:
   m_GameObject: {fileID: 1893234819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.52, y: 28.18, z: 0}
+  m_LocalPosition: {x: 49.27, y: 29.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47429,6 +47423,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1893234822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893234819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a784b21e1a084a45ad89dc446d1c6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
 --- !u!1 &1894523211
 GameObject:
   m_ObjectHideFlags: 0
@@ -58785,7 +58792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1717739924}
-  pHealth: {fileID: 1595423059}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &2092019090
 BoxCollider2D:

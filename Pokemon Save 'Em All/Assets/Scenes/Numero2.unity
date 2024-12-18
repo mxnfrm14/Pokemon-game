@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 312681608}
-  pHealth: {fileID: 172457123}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &64268785
 BoxCollider2D:
@@ -277,17 +276,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
   m_PrefabInstance: {fileID: 172457121}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &172457123 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 605293652090076648, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
-  m_PrefabInstance: {fileID: 172457121}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172457122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d96330ae36354f8e48e0e077830e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &235974849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,7 +1232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1894523211}
-  pHealth: {fileID: 172457123}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &680733918
 BoxCollider2D:
@@ -46017,7 +46004,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 279492899}
-  pHealth: {fileID: 172457123}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &1529117482
 BoxCollider2D:
@@ -46760,7 +46746,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1165581234}
-  pHealth: {fileID: 172457123}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &1815378802
 BoxCollider2D:
@@ -47181,7 +47166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a784b21e1a084a45ad89dc446d1c6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
 --- !u!1 &1894523211
 GameObject:
   m_ObjectHideFlags: 0
@@ -58469,6 +58454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2026189655}
+  - component: {fileID: 2026189656}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -58492,6 +58478,20 @@ Transform:
   - {fileID: 383109441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026189656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026189654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 605ffa98f81e0974c8c899fb7327f086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 172457122}
+  gameManager: {fileID: 1196826811}
 --- !u!1 &2092019087
 GameObject:
   m_ObjectHideFlags: 0
@@ -58538,7 +58538,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1717739924}
-  pHealth: {fileID: 172457123}
   audiomanager: {fileID: 1828499451}
 --- !u!61 &2092019090
 BoxCollider2D:

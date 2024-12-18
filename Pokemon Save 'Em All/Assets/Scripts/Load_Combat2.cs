@@ -11,7 +11,7 @@ public class Load_Combat2 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Combat");
+            SceneManager.LoadScene("Combat 1");
         }
     }
 }

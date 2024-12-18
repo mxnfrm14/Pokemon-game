@@ -15,21 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Level02.unity
     guid: 17c5147d36e11c944ae51d0314079e76
   - enabled: 1
-    path: Assets/Scenes/Combat.unity
-    guid: 29edf7bce40be864bb9517d577125867
-  - enabled: 1
     path: Assets/Scenes/Numero1.unity
     guid: 390ee7b3556a08f418a70e4eb1b79e04
   - enabled: 1
-    path: Assets/Scenes/Numero2.unity
-    guid: c0692fae89af3da448bcd72f2595c096
+    path: Assets/Scenes/Combat.unity
+    guid: 29edf7bce40be864bb9517d577125867
   - enabled: 1
     path: Assets/Scenes/Numero1bis.unity
     guid: 4b48881ad4c592649887a66568bfc9b3
   - enabled: 1
-    path: Assets/Scenes/Numero3.unity
-    guid: a7998cd77b231d24d861b03e4a60d5ec
+    path: Assets/Scenes/Numero2.unity
+    guid: c0692fae89af3da448bcd72f2595c096
+  - enabled: 1
+    path: Assets/Scenes/Combat 1.unity
+    guid: 635236baf4091564c82ab6cfa4b5502a
   - enabled: 1
     path: Assets/Scenes/Numero2bis.unity
     guid: 49d2e51b397070f49ad0648c77d7cf21
+  - enabled: 1
+    path: Assets/Scenes/Numero3.unity
+    guid: a7998cd77b231d24d861b03e4a60d5ec
   m_configObjects: {}
