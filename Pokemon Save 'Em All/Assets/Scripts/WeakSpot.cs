@@ -3,7 +3,6 @@ using UnityEngine;
 public class WeakSpot : MonoBehaviour
 {
     public GameObject objectToDestroy; // Reference to the enemy GameObject
-    public playerHealth pHealth;
     public AudioManager audiomanager;
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -20,13 +19,20 @@ public class WeakSpot : MonoBehaviour
                 audiomanager.PlaySfxDegats(audiomanager.monstre);
                 // Destroy the enemy if the player is above
                 Destroy(objectToDestroy);
-
             }
             else
             {
                 audiomanager.PlaySfxDegats(audiomanager.degats);
                 // Deal damage to the player if colliding from the side
-                pHealth.health -= 10;
+                if (playerHealth.Instance != null) 
+                {
+                    playerHealth.Instance.health -= 10; // Deduct health from the persistent player instance
+                    playerHealth.Instance.UpdateHealth(playerHealth.Instance.health); // Update health UI
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerHealth instance is not found.");
+                }
             }
         }
     }

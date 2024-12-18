@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 825414247}
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &382207489
 BoxCollider2D:
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 453561296}
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &621963066
 BoxCollider2D:
@@ -11373,6 +11373,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 2034782718}
+    - target: {fileID: 3726212979097133074, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
+      propertyPath: currentHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5968146009851630439, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.68
@@ -14622,7 +14626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 506561497}
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1549280017
 BoxCollider2D:
@@ -14923,7 +14927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1408136882}
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1591619707
 BoxCollider2D:
@@ -14983,7 +14987,7 @@ GameObject:
   - component: {fileID: 1614619623}
   m_Layer: 5
   m_Name: healthNumber
-  m_TagString: Untagged
+  m_TagString: HealthText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15117,7 +15121,7 @@ GameObject:
   - component: {fileID: 1616383774}
   m_Layer: 5
   m_Name: healthBar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15858,7 +15862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1986430779}
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1960010517
 BoxCollider2D:
@@ -16181,6 +16185,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
   m_PrefabInstance: {fileID: 955343873}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2026940058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 605293652090076648, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
+  m_PrefabInstance: {fileID: 955343873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026940055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4d96330ae36354f8e48e0e077830e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2034782717
 GameObject:
   m_ObjectHideFlags: 0

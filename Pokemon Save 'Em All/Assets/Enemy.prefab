@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7268251805237366193}
   - component: {fileID: 84603254881773825}
+  - component: {fileID: 5205572731121749031}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -153,5 +154,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: "Cam\xE9l\xE9on"
   damage: 5
-  currentHP: 50
-  maxHP: 50
+  currentHP: 60
+  maxHP: 60
+--- !u!114 &5205572731121749031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8471039529679775119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e450285407d164e9a7228fffd259c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitNameE: "Cam\xE9l\xE9on"
+  damageE: 5
+  currentHPE: 10
+  maxHPE: 60

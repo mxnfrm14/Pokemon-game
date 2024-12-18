@@ -902,11 +902,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419064048}
   m_CullTransparentMesh: 1
---- !u!1 &457514475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
-  m_PrefabInstance: {fileID: 2028118147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &676700275
 GameObject:
   m_ObjectHideFlags: 0
@@ -11310,7 +11305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64770cdedb1374b4e9f2ab654c66b7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 457514475}
+  player: {fileID: 2028118148}
   timeoffset: 0.2
   posOffset: {x: 1.53, y: 1.45, z: -10}
 --- !u!1 &1029292261
@@ -11357,7 +11352,7 @@ GameObject:
   - component: {fileID: 1106309555}
   m_Layer: 5
   m_Name: healthNumber
-  m_TagString: Untagged
+  m_TagString: HealthText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14797,7 +14792,7 @@ GameObject:
   - component: {fileID: 1680121003}
   m_Layer: 5
   m_Name: healthBar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15870,11 +15865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5968146009851630439, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 168.18
+      value: 167.98
       objectReference: {fileID: 0}
     - target: {fileID: 5968146009851630439, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.43
+      value: 18.73
       objectReference: {fileID: 0}
     - target: {fileID: 5968146009851630439, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15917,6 +15912,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
+--- !u!1 &2028118148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
+  m_PrefabInstance: {fileID: 2028118147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2034782717
 GameObject:
   m_ObjectHideFlags: 0

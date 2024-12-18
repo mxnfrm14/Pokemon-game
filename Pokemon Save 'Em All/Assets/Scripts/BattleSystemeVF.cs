@@ -27,7 +27,7 @@ namespace YourNamespace
 
         public TMP_Text dialogueText; // Use TMP_Text instead of Text
         Unit playerUnit;
-        Unit enemyUnit;
+        UnitEnnemy enemyUnit;
 
         public BattleHUD playerHUD;
         public BattleHUD enemyHUD;
@@ -41,32 +41,50 @@ namespace YourNamespace
             SetupBattle();
         }
 
-        void SetupBattle()
+    void SetupBattle()
+    {
+        Debug.Log("SetupBattle");
+
+        // Reuse the persistent player object
+        if (playerHealth.Instance != null)
         {
-            Debug.Log("SetupBattle");
-            GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
+            GameObject playerGO = playerHealth.Instance.gameObject;
+            GameObject playerGO2 = Instantiate(playerPrefab, playerBattleStation);
+
+            // Position the persistent player object in the battle scene
+            playerGO.transform.position = playerBattleStation.position;
+            playerGO.transform.rotation = Quaternion.identity;
+
+            // Fetch the Unit component and sync health values
             playerUnit = playerGO.GetComponent<Unit>();
-
-            // Initialize playerUnit's HP with playerHealth's HP
-            if (playerHealth.Instance != null)
-            {
-                playerUnit.currentHP = (int)playerHealth.Instance.health;
-                playerUnit.maxHP = (int)playerHealth.Instance.maxHealth;
-            }
-
-            GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-
-            dialogueText.text = "Un " + enemyUnit.unitName + " sauvage approche...";
-
-            playerHUD.SetHUD(playerUnit);
-            enemyHUD.SetHUD(enemyUnit);
-            HPText_Enemy.text = "HP " + enemyUnit.currentHP + "/" + enemyUnit.maxHP;
-            HPText_Player.text = "HP " + playerUnit.currentHP + "/" + playerUnit.maxHP;
-
-            state = BattleState.PLAYERTURN;
-            PlayerTurn();
+            playerUnit.currentHP = (int)playerHealth.Instance.health;
+            playerUnit.maxHP = (int)playerHealth.Instance.maxHealth;
         }
+        else
+        {
+            Debug.LogError("PlayerHealth instance not found!");
+            return;
+        }
+
+        // Instantiate the enemy
+        GameObject enemyGO = Instantiate(enemyPrefab, enemyBattleStation);
+        enemyUnit = enemyGO.GetComponent<UnitEnnemy>();
+
+        // Initialize UI
+        dialogueText.text = "Un " + enemyUnit.unitNameE + " sauvage approche...";
+        playerHUD.SetHUD(playerUnit);
+        enemyHUD.SetHUD2(enemyUnit);
+        UpdateHUD();
+
+        state = BattleState.PLAYERTURN;
+        PlayerTurn();
+    }
+
+    void UpdateHUD()
+    {
+        HPText_Enemy.text = "HP " + enemyUnit.currentHPE + "/" + enemyUnit.maxHPE;
+        HPText_Player.text = "HP " + playerUnit.currentHP + "/" + playerUnit.maxHP;
+    }
 
         void PlayerTurn()
         {
@@ -77,9 +95,9 @@ namespace YourNamespace
         {
             bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
-            dialogueText.text = "L'attaque de " + playerUnit.unitName + " a touché " + enemyUnit.unitName + " !";
-            enemyHUD.SetHP(enemyUnit.currentHP);
-            HPText_Enemy.text = "HP " + enemyUnit.currentHP + "/" + enemyUnit.maxHP;
+            dialogueText.text = "L'attaque de " + playerUnit.unitName + " a touché " + enemyUnit.unitNameE + " !";
+            enemyHUD.SetHP(enemyUnit.currentHPE);
+            HPText_Enemy.text = "HP " + enemyUnit.currentHPE + "/" + enemyUnit.maxHPE;
 
             yield return new WaitForSeconds(2f);
 
@@ -97,11 +115,11 @@ namespace YourNamespace
 
         IEnumerator EnemyTurn()
         {
-            dialogueText.text = enemyUnit.unitName + " attaque!";
+            dialogueText.text = enemyUnit.unitNameE + " attaque!";
 
             yield return new WaitForSeconds(1f);
 
-            bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+            bool isDead = playerUnit.TakeDamage(enemyUnit.damageE);
             playerHUD.SetHP(playerUnit.currentHP);
             HPText_Player.text = "HP " + playerUnit.currentHP + "/" + playerUnit.maxHP;
 

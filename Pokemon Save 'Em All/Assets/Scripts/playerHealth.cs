@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
@@ -12,16 +13,15 @@ public class playerHealth : MonoBehaviour
     public float maxHealth;
     public Image healthBar;
     public TextMeshProUGUI healthText;
-    public GameManagerScript gameManager;
     private bool isDead;
 
     void Awake()
     {
-        // Ensure that there's only one instance of playerHealth
+        // Ensure a single instance persists across scenes
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Make this object persistent between scenes
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -29,49 +29,58 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         maxHealth = health;
         UpdateHealthUI(); // Initialize the health bar and text
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (healthBar != null)
-        {
-            healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
-        }
         UpdateHealthUI();
 
         if (health <= 0 && !isDead)
         {
             isDead = true;
-            if (gameManager != null)
-            {
-                gameManager.gameOver();
-            }
+            // Handle death here if needed
         }
     }
 
-    // Updates the health text and ensures it reflects the current health
     void UpdateHealthUI()
     {
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
+        }
         if (healthText != null)
         {
             healthText.text = Mathf.Clamp(health, 0, maxHealth).ToString();
         }
     }
 
-    // Method to update health from Unit script
     public void UpdateHealth(float newHealth)
     {
         health = newHealth;
-        if (healthBar != null)
-        {
-            healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
-        }
+        UpdateHealthUI();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Try to find UI elements in the new scene
+        healthBar = GameObject.FindWithTag("HealthBar")?.GetComponent<Image>();
+        healthText = GameObject.FindWithTag("HealthText")?.GetComponent<TextMeshProUGUI>();
+
+        // Update the health UI in the new scene
         UpdateHealthUI();
     }
 }
