@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSpawner : MonoBehaviour
 {
     public GameObject playerPrefab; // Assign the player prefab in the inspector
     private GameObject player; // Reference to the player object
+    public Transform respawnPoint;
 
     void Start()
     {
@@ -37,10 +39,24 @@ public class PlayerSpawner : MonoBehaviour
         if (cameraFollow != null)
         {
             cameraFollow.player = player; // Set the camera to follow the newly instantiated or reused player
+            player.transform.position = respawnPoint.position;
         }
         else
         {
             Debug.LogError("CameraFollow script not found on main camera.");
+        }
+
+
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        if (currentSceneName == "Numero1bis")
+        {
+            player.transform.position = new Vector3(167f, 18f, player.transform.position.z);
+        }
+        if (currentSceneName == "Numero2bis")
+        {
+            player.transform.position = new Vector3(50f, 30f, player.transform.position.z);
         }
     }
 }
