@@ -1073,7 +1073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 825414247}
-  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &382207489
 BoxCollider2D:
@@ -1342,7 +1341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 453561296}
-  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &621963066
 BoxCollider2D:
@@ -14626,7 +14624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 506561497}
-  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1549280017
 BoxCollider2D:
@@ -14927,7 +14924,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1408136882}
-  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1591619707
 BoxCollider2D:
@@ -15862,7 +15858,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1986430779}
-  pHealth: {fileID: 2026940058}
   audiomanager: {fileID: 357762478}
 --- !u!61 &1960010517
 BoxCollider2D:
@@ -16185,17 +16180,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7980244265232323321, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
   m_PrefabInstance: {fileID: 955343873}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2026940058 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 605293652090076648, guid: 9b01fb410152db544b90bf5632229ea9, type: 3}
-  m_PrefabInstance: {fileID: 955343873}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026940055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4d96330ae36354f8e48e0e077830e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2034782717
 GameObject:
   m_ObjectHideFlags: 0
@@ -16208,7 +16192,7 @@ GameObject:
   - component: {fileID: 2034782718}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManagerTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16593,6 +16577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136463030}
   - component: {fileID: 2136463029}
+  - component: {fileID: 2136463031}
   m_Layer: 0
   m_Name: RespawnPoint
   m_TagString: Untagged
@@ -16667,6 +16652,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136463031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136463028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a784b21e1a084a45ad89dc446d1c6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 2026940055}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

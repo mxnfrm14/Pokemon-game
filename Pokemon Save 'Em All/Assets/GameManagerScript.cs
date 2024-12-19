@@ -1,29 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
+    private static GameManagerScript instance;
 
-    // Start is called before the first frame update
+    // Singleton pattern to ensure only one GameManager
+    public static GameManagerScript Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<GameManagerScript>();
+                if (instance != null)
+                {
+                    DontDestroyOnLoad(instance.gameObject);
+                }
+            }
+            return instance;
+        }
+    }
+
     void Start()
     {
+        // Set Game Over UI to inactive at the start
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(false);
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void gameOver()
     {
+        // Show Game Over UI
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(true);
@@ -32,14 +43,11 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
-        if (SceneManager.GetActiveScene().name == "Numero1bis")
-        {
-            SceneManager.LoadScene("Numero1");
-        }
-        else
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        // Optionally reset health here before restarting
+        playerHealth.Instance.ResetHealthToDefault();
+        
+        // Reload the current scene when the player restarts
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void quit()

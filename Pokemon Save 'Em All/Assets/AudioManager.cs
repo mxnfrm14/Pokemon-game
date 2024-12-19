@@ -40,6 +40,12 @@ public class AudioManager : MonoBehaviour
                 musicSource.clip = combat;
                 musicSource.Play();
             }
+            else if (currentScene == "Combat1")
+            {
+                musicSource.clip = combat;
+                musicSource.Play();
+            }
+            
 
 
     }

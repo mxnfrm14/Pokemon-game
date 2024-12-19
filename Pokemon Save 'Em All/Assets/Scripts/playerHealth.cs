@@ -14,6 +14,7 @@ public class playerHealth : MonoBehaviour
     public Image healthBar;
     public TextMeshProUGUI healthText;
     private bool isDead;
+    public GameManagerScript gameManager;
 
     void Awake()
     {
@@ -39,10 +40,18 @@ public class playerHealth : MonoBehaviour
     {
         UpdateHealthUI();
 
+        // If health reaches 0 and the player isn't already dead
         if (health <= 0 && !isDead)
         {
             isDead = true;
-            // Handle death here if needed
+            if (gameManager != null)
+            {
+                gameManager.gameOver(); // Call the game over logic
+            }
+            else
+            {
+                Debug.LogError("gameManager is null when health reaches 0! Ensure it's assigned.");
+            }
         }
     }
 
@@ -74,13 +83,35 @@ public class playerHealth : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    // This method is called whenever a new scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Try to find UI elements in the new scene
+        // Use tag to find the GameManager in the scene
+        GameObject gameManagerObject = GameObject.FindGameObjectWithTag("GameManagerTag");
+
+        // Check if GameManager was found and assign it
+        if (gameManagerObject != null)
+        {
+            gameManager = gameManagerObject.GetComponent<GameManagerScript>();
+            Debug.Log("GameManager successfully found and assigned.");
+        }
+        else
+        {
+            Debug.LogError("GameManager not found in the scene with the specified tag.");
+        }
+
+        // Optionally, try to find UI elements in the new scene if needed
         healthBar = GameObject.FindWithTag("HealthBar")?.GetComponent<Image>();
         healthText = GameObject.FindWithTag("HealthText")?.GetComponent<TextMeshProUGUI>();
 
-        // Update the health UI in the new scene
+        // Update the health UI
+        UpdateHealthUI();
+    }
+
+    public void ResetHealthToDefault()
+    {
+        health = 100;  // Reset to 100 only when restarting or respawning
+        isDead = false; // Reset the dead flag
         UpdateHealthUI();
     }
 }

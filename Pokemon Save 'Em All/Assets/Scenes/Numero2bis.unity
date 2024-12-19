@@ -2350,7 +2350,7 @@ GameObject:
   - component: {fileID: 1196826811}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManagerTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46068,6 +46068,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBar: {fileID: 1772625401}
   healthText: {fileID: 962252039}
+  gameManager: {fileID: 0}
 --- !u!95 &1595423060
 Animator:
   serializedVersion: 5

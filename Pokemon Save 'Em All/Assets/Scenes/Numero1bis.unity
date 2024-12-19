@@ -979,7 +979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 1781492697}
-  pHealth: {fileID: 0}
   audiomanager: {fileID: 1824469739}
 --- !u!61 &726439770
 BoxCollider2D:
@@ -14391,7 +14390,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 99743809}
-  pHealth: {fileID: 0}
   audiomanager: {fileID: 1824469739}
 --- !u!61 &1344297714
 BoxCollider2D:
@@ -14484,7 +14482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 899239270}
-  pHealth: {fileID: 0}
   audiomanager: {fileID: 1824469739}
 --- !u!61 &1375466358
 BoxCollider2D:
@@ -15929,7 +15926,7 @@ GameObject:
   - component: {fileID: 2034782718}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManagerTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

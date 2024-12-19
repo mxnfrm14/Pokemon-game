@@ -9,6 +9,7 @@ TagManager:
   - Dialogue
   - HealthBar
   - HealthText
+  - GameManagerTag
   layers:
   - Default
   - TransparentFX
