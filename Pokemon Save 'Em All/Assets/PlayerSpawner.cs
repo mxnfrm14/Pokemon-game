@@ -6,6 +6,7 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject playerPrefab; // Assign the player prefab in the inspector
     private GameObject player; // Reference to the player object
     public Transform respawnPoint;
+    private playerHealth pHealth;
 
     void Start()
     {
@@ -52,11 +53,15 @@ public class PlayerSpawner : MonoBehaviour
 
         if (currentSceneName == "Numero1bis")
         {
-            player.transform.position = new Vector3(167f, 18f, player.transform.position.z);
+            pHealth = playerHealth.Instance;
+            player.transform.position = new Vector3(14f, 20f, player.transform.position.z);
+            pHealth.UpdateHealth(pHealth.health + 30);
         }
         if (currentSceneName == "Numero2bis")
         {
-            player.transform.position = new Vector3(50f, 30f, player.transform.position.z);
+            pHealth = playerHealth.Instance;
+            player.transform.position = new Vector3(14f, -42f, player.transform.position.z);
+            pHealth.UpdateHealth(pHealth.health + 30);
         }
     }
 }

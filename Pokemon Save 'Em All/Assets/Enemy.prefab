@@ -170,5 +170,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitNameE: "Cam\xE9l\xE9on"
   damageE: 5
-  currentHPE: 10
+  currentHPE: 30
   maxHPE: 60
