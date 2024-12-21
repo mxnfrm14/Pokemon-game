@@ -7,7 +7,19 @@ public class LoadSpecificScene : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Level02");
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            // Check the current scene and load the next one
+            if (currentScene == "Numero1")
+            {
+                SceneManager.LoadScene("Numero2");
+            }else if (currentScene == "Numero1bis")
+            {
+                SceneManager.LoadScene("Numero2");
+            }else if (currentScene == "Numero2bis")
+            {
+                SceneManager.LoadScene("Numero3");
+            }
         }
     }
 }

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - MovingPlatform
+  - MovingPlatform2
+  - Dialogue
+  - HealthBar
+  - HealthText
+  - GameManagerTag
   layers:
   - Default
   - TransparentFX

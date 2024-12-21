@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6578623703105229969}
   - component: {fileID: 6124519957286094806}
+  - component: {fileID: 5952790621320250}
   m_Layer: 0
   m_Name: Idle_0
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5952790621320250
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143839301269041242}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e6c70a503fe69441a26f0b643cf519e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8320116842831820720
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,5 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Dog
   damage: 7
-  maxHP: 60
   currentHP: 50
+  maxHP: 60
